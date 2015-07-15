@@ -15,7 +15,17 @@ Route::get('/', 'HomeController@index');
 
 Route::get('home', 'HomeController@index');
 
+//Route::get('center', 'HomeController@index');
+//Route::get('center', 'DetailController@detail');
+Route::post('detail/{id}', 'DetailController@show');
+
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::group(['prefix' => 'center', 'namespace' => 'Center'], function()
+{
+    Route::get('/', 'HomeController@index');
+    Route::resource('detail', 'DetailController');
+});

@@ -73,7 +73,7 @@
         </div>
 
         <ul class="navigation">
-            <li><a href="index-2.html" class="blblue">Dashboard</a></li>
+            <li><a href="{{ URL('center/detail') }}" class="blblue">我的信息</a></li>
 
 
             <li class="active">
@@ -96,7 +96,7 @@
 
         <ul class="navigation">
             <li>
-                <a href="index-2.html" class="button">
+                <a href="{{ URL('center/detail/'.Auth::user()->id) }}" class="button">
                     <div class="icon">
                         <span class="ico-monitor"></span>
                     </div>
@@ -229,4 +229,8 @@
         </ul>
         @yield('content')
 
+        <div class="dialog" id="source" style="display: none;" title="Source"></div>
+
+</body>
+</html>
         <!-- Scripts -->
