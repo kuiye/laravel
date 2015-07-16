@@ -28,4 +28,5 @@ Route::group(['prefix' => 'center', 'namespace' => 'Center'], function()
 {
     Route::get('/', 'HomeController@index');
     Route::resource('detail', 'DetailController');
+    Route::get('/detailcreat', 'DetailController@create');
 });

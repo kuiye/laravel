@@ -18,11 +18,23 @@
     <script type='text/javascript' src="{{asset('js/plugins/other/lte-ie7.js')}}"></script>
     <![endif]-->
 
-    <link href="css/stylesheets.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('css/stylesheets.css')}}" rel="stylesheet" type="text/css" />
     <!--[if lte IE 7]>
-    <link href="css/ie.css" rel="stylesheet" type="text/css" />
+    <link href="{{asset('css/ie.css')}}" rel="stylesheet" type="text/css" />
     <script type='text/javascript' src="{{asset('js/plugins/other/lte-ie7.js')}}"></script>
     <![endif]-->
+    <script type='text/javascript' src="{{asset('js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js')}}"></script>
+
+    <script type='text/javascript' src="{{asset('js/plugins/uniform/jquery.uniform.min.js')}}"></script>
+    <script type='text/javascript' src="{{asset('js/plugins/select/select2.min.js')}}"></script>
+    <script type='text/javascript' src="{{asset('js/plugins/tagsinput/jquery.tagsinput.min.js')}}"></script>
+    <script type='text/javascript' src="{{asset('js/plugins/maskedinput/jquery.maskedinput-1.3.min.js')}}"></script>
+    <script type='text/javascript' src="{{asset('js/plugins/multiselect/jquery.multi-select.min.js')}}"></script>
+
+    <script type='text/javascript' src="{{asset('js/plugins/validationEngine/languages/jquery.validationEngine-en.js')}}"></script>
+    <script type='text/javascript' src="{{asset('js/plugins/validationEngine/jquery.validationEngine.js')}}"></script>
+
+
     <script type='text/javascript' src="{{asset('js/plugins/jquery/jquery-1.9.1.min.js')}}"></script>
     <script type='text/javascript' src="{{asset('js/plugins/jquery/jquery-ui-1.10.1.custom.min.js')}}"></script>
     <script type='text/javascript' src="{{asset('js/plugins/jquery/jquery-migrate-1.1.1.min.js')}}"></script>

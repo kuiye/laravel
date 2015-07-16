@@ -1,5 +1,5 @@
 <?php namespace App\Http\Controllers;
-
+use Redirect, Input, Auth,DB;
 class HomeController extends Controller {
 
 	/*
@@ -30,7 +30,13 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('center.home');
+        $id = Auth::user()->id;
+        $results = DB::select('select * from details where user_id = ' . $id);
+        if (empty($results)) {
+            return Redirect::back()->withInput()->withErrors('请添加信息');
+        } else {
+            return view('center.home');
+        }
 	}
 
 }

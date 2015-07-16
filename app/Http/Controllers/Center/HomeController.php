@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Detail;
 
-use Redirect, Input, Auth;
+use Redirect, Input, Auth,DB;
 class HomeController extends Controller {
 
     public function __construct()
@@ -18,10 +18,17 @@ class HomeController extends Controller {
 	 * @return Response
 	 */
 	public function index()
-	{
-		//
-        return view('center.home');
-	}
+    {
+        //
+        $id = Auth::user()->id;
+        $results = DB::select('select * from details where user_id= ' . $id);
+        if (empty($results)) {
+            //return Redirect::back()->withInput()->withErrors('请添加信息');
+            return view('center.detailcreat');
+        } else {
+            return view('center.home');
+        }
+    }
 
 	/**
 	 * Show the form for creating a new resource.

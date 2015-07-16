@@ -20,7 +20,7 @@
                     <div class="head">
                         <h2>详细信息</h2>
                         <ul class="buttons">
-                            <li><a href="#" onClick="source('form_default'); return true;"><div class="icon"><span class="ico-info"></span></div></a></li>
+                            <li><a href="#" onClick="source('form_default'); return true;"><div class="icon"><span class="icon-pencil"></span></div></a></li>
                         </ul>
                     </div>
                     <div class="data-fluid">

@@ -21,7 +21,7 @@ class DetailController extends Controller {
 	{
 		//使用当前用户id查询
         $id=Auth::user()->id;
-         return view('center.detail')->withDetail(detail::find($id));
+        return view('center.detail')->withDetail(detail::find($id));
 	}
 
 	/**
@@ -31,7 +31,11 @@ class DetailController extends Controller {
 	 */
 	public function create()
 	{
-		//
+		/*
+		 * 添加基础信息
+		 * 首次注册自动跳转
+		 */
+        return view('center.detailcreat');
 	}
 
 	/**
@@ -53,7 +57,7 @@ class DetailController extends Controller {
 	public function show($id)
 	{
 		//
-        $id=Auth::user()->id;
+
         return view('center.detailshow')->withDetail(detail::find($id));
 
 
