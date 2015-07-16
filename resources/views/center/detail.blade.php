@@ -20,7 +20,7 @@
                     <div class="head">
                         <h2>详细信息</h2>
                         <ul class="buttons">
-                            <li><a href="#" onClick="source('form_default'); return true;"><div class="icon"><span class="icon-pencil"></span></div></a></li>
+                            <li><a href="{{ URL('center/detailedit/')}}" ><div class="icon"><span class="icon-pencil"></span></div></a></li>
                         </ul>
                     </div>
                     <div class="data-fluid">
@@ -40,7 +40,7 @@
                         <div class="row-form">
                             <div class="span3">logo:</div>
                             <div class="span9">
-                                <img src="{{ $detail->image}}"/>
+                                <img src="{{ URL('uploadfiles/'.$detail->image) }}" width="40%"/>
                             </div>
                         </div>
                         <div class="row-form">

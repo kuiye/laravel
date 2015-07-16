@@ -29,4 +29,7 @@ Route::group(['prefix' => 'center', 'namespace' => 'Center'], function()
     Route::get('/', 'HomeController@index');
     Route::resource('detail', 'DetailController');
     Route::get('/detailcreat', 'DetailController@create');
+    Route::get('/detailedit', 'DetailController@edit');
+    Route::post('/detailupdate', 'DetailController@update');
+    Route::post('/detailnew', 'DetailController@newshop');
 });

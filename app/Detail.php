@@ -9,5 +9,5 @@ class Detail extends Model {
     {
         //return $this->hasMany('App\User', 'id', 'user_id');
     }*/
-
+    protected $fillable = ['type', 'cname', 'website', 'ctype', 'caddress','image','cnumber','ctel','user_id'];
 }
