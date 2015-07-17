@@ -41,12 +41,25 @@
                                     <span class="bottom">类型不可修改</span>
                                 </div>
                             </div>
+                            <div class="row-form hide" id="Cont_1">
+                                <div class="span2">上级机构:</div>
+                                <div class="span10">
+                                    <input type="text" class="validate[required,maxSize[50]]" name="cname" value="0000" readonly="readonly"/>
+                                    <span class="bottom">公司名称不可修改</span>
+                                </div>
+                            </div>
                             <div class="row-form">
                                 <div class="span2">所属行业:</div>
                                 <div class="span5">
                                     <input type="text" class="validate[required,maxSize[50]]" name="ctype" value="{{ $detail->type }}" readonly="readonly"/>
                                     <span class="bottom">行业不可修改</span>
 
+                                </div>
+                            </div>
+                            <div class="row-form">
+                                <div class="span3">logo:</div>
+                                <div class="span9">
+                                    <img src="{{ URL('uploadfiles/'.$detail->image) }}" width="40%"/>
                                 </div>
                             </div>
                             <div class="row-form">
@@ -68,7 +81,13 @@
                             <div class="row-form">
                                 <div class="span2">联系号码：</div>
                                 <div class="span10">
-                                    <input type="text" class="validate[required,maxSize[11]]" name="ctel" />
+                                    <input type="text" class="validate[required,maxSize[11]]" name="ctel" value="{{ $detail->ctel }}"/>
+                                </div>
+                            </div>
+                            <div class="row-form">
+                                <div class="span2">验证码：</div>
+                                <div class="span10">
+                                    <input type="text" class="validate[required,maxSize[11]]" name="cy"/>
                                 </div>
                             </div>
                             <div class="row-form">
@@ -105,6 +124,27 @@
 
     </div>
 
+    <script type="text/javascript">
+        $(function(){
+            $('select').change(function(){
 
+                var value=$("select").find("option:selected").val();
+
+                if(value=='1'){
+                    $('#Cont_1').removeClass('hide');
+                    $('#Cont_2,#Cont_3').addClass('hide');
+                }
+                if(value=='2'){
+                    $('#Cont_2').removeClass('hide');
+                    $('#Cont_1,#Cont_3').addClass('hide');
+                }
+
+
+            });
+
+        });
+
+
+    </script>
 
 @endsection

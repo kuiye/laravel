@@ -104,9 +104,13 @@ class DetailController extends Controller {
         }else if ($file->isValid())
         {
             $fileName=$file -> getClientOriginalName();
-            $file->move($destinationPath,$fileName);
+            $fileName=substr(md5($fileName),-4).time();
+            $entension = $file -> getClientOriginalExtension();
+
+            $fName=$fileName.'.'.$entension;
+            $file->move($destinationPath,$fName);
         }else{
-            $fileName=DB::table('details')->where('user_id', $id)->pluck('image');
+            $fName=DB::table('details')->where('user_id', $id)->pluck('image');
         }
        // Request::file('photo')->move($destinationPath);
         $cid=DB::table('details')->where('user_id', $id)->pluck('id');
@@ -114,7 +118,7 @@ class DetailController extends Controller {
         $detail->cname =  $cname;
         $detail->type =  $type;
         $detail->ctype =  $ctype;
-        $detail->image =  $fileName;
+        $detail->image =  $fName;
         $detail->cnumber =  $cnumber;
         $detail->caddress =  $caddress;
         $detail->ctel =  $ctel;
@@ -141,21 +145,24 @@ class DetailController extends Controller {
 
         if(empty($file)){
 
-            $fileName="all.jpg";
+            $fName="all.jpg";
         }else if ($file->isValid())
         {
             $fileName=$file -> getClientOriginalName();
+            $fileName=substr(md5($fileName),-4).time();
+            $entension = $file -> getClientOriginalExtension();
 
-            $file->move($destinationPath,$fileName);
+            $fName=$fileName.'.'.$entension;
+            $file->move($destinationPath,$fName);
         }else{
-            $fileName="all.jpg";
+            $fName="all.jpg";
         }
         // Request::file('photo')->move($destinationPath);
         $detail = new Detail();
         $detail->cname =  $cname;
         $detail->type =  $type;
         $detail->ctype =  $ctype;
-        $detail->image =  $fileName;
+        $detail->image =  $fName;
         $detail->cnumber =  $cnumber;
         $detail->caddress =  $caddress;
         $detail->ctel =  $ctel;
