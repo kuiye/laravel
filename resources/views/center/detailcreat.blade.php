@@ -41,8 +41,18 @@
                                     <option value="">请选择分类</option>
                                     <option value="1">本地品牌</option>
                                     <option value="2">连锁品牌</option>
+                                    <option value="3">加盟门店</option>
                                 </select>
                              </div>
+                            </div>
+
+                            <div class="row-form hide" id="Cont_1">
+                                <div class="span2">上级机构:</div>
+                                <div class="span9">
+                                    <input type="text" name="ckey" value="0000" />
+                                    <button class="btn btn-warning" type="button">Right</button>
+                                    <span class="bottom">公司名称不可修改</span>
+                                </div>
                             </div>
 
                         <div class="row-form">
@@ -115,6 +125,32 @@
 
     </div>
 
+
+    <script type="text/javascript">
+        $(function(){
+            $('select').change(function(){
+
+                var value=$("select").find("option:selected").val();
+
+                if(value=='3'){
+                    $('#Cont_1').removeClass('hide');
+                    $('#Cont_2,#Cont_3').addClass('hide');
+                }
+                if(value=='2'){
+                    $('#Cont_2').removeClass('hide');
+                    $('#Cont_1,#Cont_3').addClass('hide');
+                }
+                if(value=='1'){
+                    $('#Cont_2').removeClass('hide');
+                    $('#Cont_1,#Cont_3').addClass('hide');
+                }
+
+            });
+
+        });
+
+
+    </script>
 
 
 @endsection
