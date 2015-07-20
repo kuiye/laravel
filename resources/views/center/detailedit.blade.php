@@ -44,8 +44,8 @@
                             <div class="row-form hide" id="Cont_1">
                                 <div class="span2">上级机构:</div>
                                 <div class="span10">
-                                    <input type="text" class="validate[required,maxSize[50]]" name="cname" value="0000" readonly="readonly"/>
-                                    <span class="bottom">公司名称不可修改</span>
+                                    <input type="text" class="validate[required,maxSize[50]]" name="ckey" value="0000" readonly="readonly"/>
+                                    <span class="bottom">请联系上级用户获取密匙</span>
                                 </div>
                             </div>
                             <div class="row-form">
@@ -75,7 +75,7 @@
                             <div class="row-form">
                                 <div class="span2">营业执照：</div>
                                 <div class="span10">
-                                    <input type="text" class="validate[required,maxSize[15]]" name="cnumber"  value="{{ $detail->cnumber }}"/>
+                                    <input type="text" class="validate[required,maxSize[15]]" name="cnumber"  value="{{ $detail->cnumber }}" readonly="readonly"/>
                                 </div>
                             </div>
                             <div class="row-form">

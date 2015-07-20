@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class Chain extends Model {
+class Chainsdown extends Model {
 
 	//
 

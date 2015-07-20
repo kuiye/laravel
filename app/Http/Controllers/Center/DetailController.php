@@ -100,7 +100,7 @@ class DetailController extends Controller {
 
         if(empty($file)){
 
-            $fileName=DB::table('details')->where('user_id', $id)->pluck('image');
+            $fName=DB::table('details')->where('user_id', $id)->pluck('image');
         }else if ($file->isValid())
         {
             $fileName=$file -> getClientOriginalName();
@@ -113,6 +113,7 @@ class DetailController extends Controller {
             $fName=DB::table('details')->where('user_id', $id)->pluck('image');
         }
        // Request::file('photo')->move($destinationPath);
+       // print($fName);
         $cid=DB::table('details')->where('user_id', $id)->pluck('id');
         $detail = detail::find($cid);
         $detail->cname =  $cname;
@@ -169,7 +170,7 @@ class DetailController extends Controller {
         $detail->user_id=$id;
         $detail->save();
         $cid=DB::table('details')->where('user_id', $id)->pluck('id');
-        return  view('center.detail')->withDetail(detail::find($cid));
+        return  view('center.addcontract');
     }
 	/**
 	 * Remove the specified resource from storage.

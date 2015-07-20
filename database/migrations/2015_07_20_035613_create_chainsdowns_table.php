@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateChainsTable extends Migration {
+class CreateChainsdownsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,11 +12,13 @@ class CreateChainsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('chains', function(Blueprint $table)
+		Schema::create('chainsdowns', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('upid');//一级商家ID
-            $table->String('ckey');//商家密匙
+            $table->integer('cid');//上级ID
+            $table->integer('sid');//商家ID
+            $table->String('ckey');//密匙
+            $table->integer('static');//状态
 			$table->timestamps();
 		});
 	}
@@ -28,7 +30,7 @@ class CreateChainsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('chains');
+		Schema::drop('chainsdowns');
 	}
 
 }

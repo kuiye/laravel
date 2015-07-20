@@ -47,11 +47,11 @@
                             </div>
 
                             <div class="row-form hide" id="Cont_1">
-                                <div class="span2">上级机构:</div>
+                                <div class="span2">上级机构名称:</div>
                                 <div class="span9">
                                     <input type="text" name="ckey" value="0000" />
                                     <button class="btn btn-warning" type="button">Right</button>
-                                    <span class="bottom">公司名称不可修改</span>
+
                                 </div>
                             </div>
 

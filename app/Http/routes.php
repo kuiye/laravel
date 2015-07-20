@@ -30,6 +30,7 @@ Route::group(['prefix' => 'center', 'namespace' => 'Center'], function()
     Route::resource('detail', 'DetailController');
     Route::get('/detailcreat', 'DetailController@create');
     Route::get('/detailedit', 'DetailController@edit');
+    Route::get('/addcontract', 'ContractController@index');
     Route::post('/detailupdate', 'DetailController@update');
     Route::post('/detailnew', 'DetailController@newshop');
 });
