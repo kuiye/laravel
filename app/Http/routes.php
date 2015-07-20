@@ -33,4 +33,5 @@ Route::group(['prefix' => 'center', 'namespace' => 'Center'], function()
     Route::get('/addcontract', 'ContractController@index');
     Route::post('/detailupdate', 'DetailController@update');
     Route::post('/detailnew', 'DetailController@newshop');
+    Route::post('/addcontract', 'ContractController@create');
 });

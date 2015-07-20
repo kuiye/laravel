@@ -144,6 +144,8 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
+        //支付宝
+
 
 	],
 
@@ -194,5 +196,7 @@ return [
 		'View'      => 'Illuminate\Support\Facades\View',
 
 	],
+
+
 
 ];

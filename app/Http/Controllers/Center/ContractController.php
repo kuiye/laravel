@@ -4,7 +4,10 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
+use App\Detail;
+use App\contract;
 
+use Redirect, Input, Auth,App\User,DB;
 class ContractController extends Controller {
 
     public function __construct()
@@ -18,7 +21,7 @@ class ContractController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
 		//
         return view('center.addcontract');
@@ -29,9 +32,37 @@ class ContractController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function create(Request $request)
 	{
-		//
+        //生成合同
+        $id=Auth::user()->id;
+        $cname= Auth::user()->name;
+        $type= $request->input('type');
+
+
+        //生成电子签名
+        $dekey=$request->input('_token').$id;//当前用户TOKNE+用户id
+        $ckey=base64_encode($dekey);//base64加密
+        //生成唯一编号
+        $cnumber=time().rand(100000,999999);
+        if($type==1){
+            $rtype="试用合同";
+            $rnumber="SY".$cnumber;
+        }else{
+            $rtype="正式合同";
+            $rnumber="ZS".$cnumber;
+        }
+        $rname=$cname."的".$rtype;
+        $contract = new contract();
+        $contract->cname =  $rname;
+        $contract->type =  $type;
+        $contract->user_id =  $id;
+        $contract->ckey =  $ckey;
+        $contract->dekey=$dekey;
+        $contract->cnumber=$rnumber;
+        $contract->state="0";
+        $contract->Content='test';
+        $contract->save();
 	}
 
 	/**

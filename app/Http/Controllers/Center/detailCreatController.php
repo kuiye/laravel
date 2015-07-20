@@ -25,7 +25,7 @@ class detailCreatController extends Controller {
 	 */
 	public function create()
 	{
-		//
+
 	}
 
 	/**
