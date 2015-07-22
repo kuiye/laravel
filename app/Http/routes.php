@@ -14,7 +14,7 @@
 Route::get('/', 'HomeController@index');
 
 Route::get('home', 'HomeController@index');
-
+Route::get('testcontract', 'TouristsController@index');
 //Route::get('center', 'HomeController@index');
 //Route::get('center', 'DetailController@detail');
 Route::post('detail/{id}', 'DetailController@show');

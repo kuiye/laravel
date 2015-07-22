@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "b71d55f2d0639e64d92fdcf47e49461c",
+    "hash": "4d4d6b77f2ddcdc05b68817016adb2e7",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -540,25 +540,13 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Latrell/Alipay.git",
-                "reference": "a35de511b669ce216b183f208921390a086bf9ef",
-                "mirrors": [
-                    {
-                        "url": "/%package%/%normalizedUrl%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "reference": "a35de511b669ce216b183f208921390a086bf9ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Latrell/Alipay/zipball/a35de511b669ce216b183f208921390a086bf9ef",
+                "url": "http://packagist.phpcomposer.com/files/Latrell/Alipay/a35de511b669ce216b183f208921390a086bf9ef.zip",
                 "reference": "a35de511b669ce216b183f208921390a086bf9ef",
-                "shasum": "",
-                "mirrors": [
-                    {
-                        "url": "http://pkg.phpcomposer.com/repo/packagist/dists/%package%/%version%/%reference%.%type%",
-                        "preferred": true
-                    }
-                ]
+                "shasum": ""
             },
             "require": {
                 "illuminate/config": "5.*",
@@ -572,7 +560,7 @@
                     "Latrell\\Alipay\\": "src/Latrell/Alipay/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "notification-url": "http://packagist.phpcomposer.com/downloads/",
             "license": [
                 "MIT"
             ],

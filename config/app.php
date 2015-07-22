@@ -144,8 +144,9 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
-        //支付宝
 
+        //支付宝模块
+        'Latrell\Alipay\AlipayServiceProvider',
 
 	],
 
