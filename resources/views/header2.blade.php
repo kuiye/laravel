@@ -72,7 +72,7 @@
                 <a href="#" class="bldblue">业务合同</a>
                 <div class="open"></div>
                 <ul>
-                    <li class="active"><a href="tables.html">我的合同</a></li>
+                    <li class="active"><a href="{{ URL('center/mycontract') }}">我的合同</a></li>
                     <li><a href="tables_dynamic.html">我的服务</a></li>
                 </ul>
             </li>
@@ -88,7 +88,7 @@
 
         <ul class="navigation">
             <li>
-                <a href="{{ URL('center/detail/'.Auth::user()->id) }}" class="button">
+                <a href="{{ URL('center/detail') }}" class="button">
                     <div class="icon">
                         <span class="ico-monitor"></span>
                     </div>

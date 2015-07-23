@@ -25,6 +25,7 @@ class CreateContractsTable extends Migration {
             $table->date('starttime');//生效日期
             $table->date('endtime');//结束日期
             $table->integer('user_id');//所属用户id
+            $table->string('dkey');
 			$table->timestamps();
 		});
 	}
