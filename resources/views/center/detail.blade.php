@@ -39,8 +39,9 @@
                         </div>
                         <div class="row-form">
                             <div class="span3">logo:</div>
-                            <div class="span9">
-                                <img src="{{ URL('uploadfiles/'.$detail->image) }}" width="40%"/>
+                            <div class="span9"> <div class="item">
+                                <a href="{{ URL('uploadfiles/'.$detail->image) }}" class="fb" rel="group"><img  src="{{ URL('uploadfiles/'.$detail->image) }}" width="40%"/></a>
+                                    </div>
                             </div>
                         </div>
                         <div class="row-form">

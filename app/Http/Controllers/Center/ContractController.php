@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Detail;
 use App\contract;
-
+use App\pay;
 use Redirect, Input, Auth,App\User,DB;
 class ContractController extends Controller
 {
@@ -37,34 +37,47 @@ class ContractController extends Controller
     public function create(Request $request)
     {
         //生成合同
-        $id = Auth::user()->id;
+        $uid = Auth::user()->id;
         $cname = Auth::user()->name;
         $type = $request->input('type');
 
 
         //生成电子签名
-        $dekey = $request->input('_token') . $id;//当前用户TOKNE+用户id
+        $dekey = $request->input('_token') . $uid;//当前用户TOKNE+用户id
         $ckey = base64_encode($dekey);//base64加密
         //生成唯一编号
         $cnumber = time() . rand(100000, 999999);
         if ($type == 1) {
             $rtype = "试用合同";
             $rnumber = "SY" . $cnumber;
+            $price=500;
         } else {
             $rtype = "正式合同";
             $rnumber = "ZS" . $cnumber;
+            $price=2000;
         }
         $rname = $cname . "的" . $rtype;
         $contract = new contract();
         $contract->cname = $rname;
         $contract->type = $type;
-        $contract->user_id = $id;
+        $contract->user_id = $uid;
         $contract->ckey = $ckey;
         $contract->dekey = $dekey;
         $contract->cnumber = $rnumber;
         $contract->state = "0";
         $contract->Content = 'test';
         $contract->save();
+
+        $cid=DB::table('contracts')->where('ckey', $ckey)->pluck('id');
+        //echo $cid;
+        //生成订单信息
+        $pay = new pay();
+        $pay->pid=$cid;
+        $pay->pname=$rname;
+        $pay->price=$price;
+        $pay->static='0';
+        $pay->user_id = $uid;
+        $pay->save();
         return view('center.showcontract');
     }
 
@@ -134,8 +147,10 @@ class ContractController extends Controller
     public function my()
     {
         $id = Auth::user()->id;
-
-        return view('center.showcontract')->withcontract(DB::table('contracts')->where('user_id', '=', $id)->get());
+        $result= contract::where('user_id', '=', $id)->paginate(15);
+        //echo $users;
+        //var_dump($users);
+        return view('center.showcontract')->withcontracts($result);
     }
 
 }

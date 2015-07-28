@@ -15,6 +15,9 @@ class CreatePaysTable extends Migration {
 		Schema::create('pays', function(Blueprint $table) {
             $table->increments('id');
             $table->integer('pid');//对应服务ID
+            $table->integer('user_id');
+            $table->string('price');
+            $table->string('pname');
             $table->integer('static');//支付状态
             $table->date('paytime');//支付时间
             $table->timestamps();

@@ -31,12 +31,19 @@ class HomeController extends Controller {
 	public function index()
 	{
         $id = Auth::user()->id;
-        $results = DB::select('select * from details where user_id = ' . $id);
-        if (empty($results)) {
-            return Redirect::back()->withInput()->withErrors('请添加信息');
-        } else {
-            return view('center.home');
+        $isadmin=DB::select('select * from details where user_id = ' . $id);
+        $results = DB::select('select * from admins where user_id = ' . $id);
+
+            if (empty($results)) {
+                return Redirect::back()->withInput()->withErrors('请添加信息');
+            } else {
+                if(empty($isadmin)) {
+                    return view('center.home');
+                }
+                else{
+                        return Redirect::to('admin/');
+                    }
+            }
         }
-	}
 
 }

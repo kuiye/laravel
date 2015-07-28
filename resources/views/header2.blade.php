@@ -73,7 +73,7 @@
                 <div class="open"></div>
                 <ul>
                     <li class="active"><a href="{{ URL('center/mycontract') }}">我的合同</a></li>
-                    <li><a href="tables_dynamic.html">我的服务</a></li>
+                  <!--  <li><a href="tables_dynamic.html">我的服务</a></li> -->
                 </ul>
             </li>
 

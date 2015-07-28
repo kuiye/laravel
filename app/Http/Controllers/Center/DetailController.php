@@ -21,7 +21,10 @@ class DetailController extends Controller {
 	{
 		//使用当前用户id查询
         $id=Auth::user()->id;
-        $cid=DB::table('details')->where('user_id', $id)->pluck('id');
+        //$cid=DB::table('details')->where('user_id', $id)->pluck('id');
+        $cid=DB::table('details')
+            ->whereUser_idAndType($id, '1')
+            ->pluck('id');
         return view('center.detail')->withDetail(detail::find($cid));
 	}
 

@@ -34,6 +34,12 @@ Route::group(['prefix' => 'center', 'namespace' => 'Center'], function()
     Route::post('/detailupdate', 'DetailController@update');
     Route::post('/detailnew', 'DetailController@newshop');
     Route::post('/addcontract', 'ContractController@create');
-    Route::get('/showcontract', 'ContractController@show');
     Route::get('/mycontract', 'ContractController@my');
+
+});
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function()
+{
+    Route::get('/', 'AdminHomeController@index');
+    Route::get('/home', 'AdminHomeController@index');
 });

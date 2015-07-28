@@ -22,13 +22,17 @@ class HomeController extends Controller {
         //
         $id = Auth::user()->id;
         $results = DB::select('select * from details where user_id= ' . $id);
-        if (empty($results)) {
-            //return Redirect::back()->withInput()->withErrors('请添加信息');
-            return view('center.detailcreat');
-        } else {
-            return view('center.home');
+       // $isadmin = DB::select('select * from admins where user_id = ' . $id);
+
+            if (empty($results)) {
+                //return Redirect::back()->withInput()->withErrors('请添加信息');
+                return view('center.detailcreat');
+            } else {
+                //$id = Auth::user()->id;
+                //return view('center.showcontract')->withcontract(DB::table('contracts')->where('user_id', '=', $id)->get());
+                return Redirect::to('center/mycontract');
+            }
         }
-    }
 
 	/**
 	 * Show the form for creating a new resource.

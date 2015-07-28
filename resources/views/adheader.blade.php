@@ -85,14 +85,14 @@
         </div>
 
         <ul class="navigation">
-            <li><a href="{{ URL('center/detail') }}" class="blblue">我的信息</a></li>
+            <li><a href="{{ URL('center/detail') }}" class="blblue">信息</a></li>
 
 
             <li class="active">
                 <a href="#" class="bldblue">业务合同</a>
                 <div class="open"></div>
                 <ul>
-                    <li class="active"><a href="{{ URL('center/mycontract') }}">我的合同</a></li>
+                    <li class="active"><a href="{{ URL('admin/home') }}">全部合同</a></li>
                     <!--<li><a href="tables_dynamic.html">我的服务</a></li>-->
                 </ul>
             </li>
